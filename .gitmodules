@@ -1,0 +1,3 @@
+[submodule "stumpless"]
+	path = stumpless
+	url = https://github.com/goatshriek/stumpless
