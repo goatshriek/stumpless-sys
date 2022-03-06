@@ -1,0 +1,45 @@
+name: Windows
+
+on:
+  push:
+  pull_request:
+    branches: [ "latest" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  default_features:
+    name: Default Features
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        toolchain:
+          - stable
+          - beta
+          - nightly
+    steps:
+      - uses: actions/checkout@v3
+      - name: Checkout submodules
+        run: git submodule update --init
+      - run: rustup update ${{ matrix.toolchain }}
+      - run: rustup default ${{ matrix.toolchain }}
+      - run: cargo build --verbose
+      - run: cargo test --verbose
+  windows_features:
+    name: All Windows Features
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        toolchain:
+          - stable
+          - beta
+          - nightly
+    steps:
+      - uses: actions/checkout@v3
+      - name: Checkout submodules
+        run: git submodule update --init
+      - run: rustup update ${{ matrix.toolchain }}
+      - run: rustup default ${{ matrix.toolchain }}
+      - run: cargo build --verbose --features network,wel
+      - run: cargo test --verbose

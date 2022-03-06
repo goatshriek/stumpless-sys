@@ -1,0 +1,23 @@
+[package]
+name = "stumpless-sys"
+description = "Bindings for the Stumpless logging library."
+version = "0.1.0"
+authors = ["Joel Anderson <joelanderson333@gmail.com>"]
+edition = "2021"
+repository = "https://github.com/goasthriek/stumpless-sys/"
+license = "Apache-2.0"
+keywords = ["bindings", "ffi", "library", "log", "logging"]
+categories = ["external-ffi-bindings"]
+
+[dependencies]
+libc = "0.2.139"
+
+[features]
+journald = []
+network = []
+socket = []
+wel = []
+
+[build-dependencies]
+bindgen = "0.63.0"
+cmake = ">=0.1.45"
