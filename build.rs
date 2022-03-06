@@ -8,7 +8,7 @@ fn main() {
         "cargo:rustc-link-search=native={}/lib",
         stumpless_out.display()
     );
-    println!("cargo:rustc-link-lib=static=stumpless");
+    println!("cargo:rustc-link-lib=stumpless");
 
     // The bindgen::Builder is the main entry point
     // to bindgen, and lets you build up options for
