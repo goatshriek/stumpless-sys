@@ -7,7 +7,16 @@ fn main() {
     } else {
         "OFF"
     };
-
+    let network_enabled = if cfg!(feature = "network") {
+        "ON"
+    } else {
+        "OFF"
+    };
+    let socket_enabled = if cfg!(feature = "socket") {
+        "ON"
+    } else {
+        "OFF"
+    };
     let wel_enabled = if cfg!(feature = "wel") {
         "ON"
     } else {
@@ -17,6 +26,8 @@ fn main() {
     let stumpless_out = cmake::Config::new("stumpless")
         .define("BUILD_SHARED_LIBS", "OFF")
         .define("ENABLE_JOURNALD_TARGETS", journald_enabled)
+        .define("ENABLE_NETWORK_TARGETS", network_enabled)
+        .define("ENABLE_SOCKET_TARGETS", socket_enabled)
         .define("ENABLE_WINDOWS_EVENT_LOG_TARGETS", wel_enabled)
         .build();
 

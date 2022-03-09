@@ -11,6 +11,8 @@ libc = "0.2.117"
 
 [features]
 journald = []
+network = []
+socket = []
 wel = []
 
 [build-dependencies]
