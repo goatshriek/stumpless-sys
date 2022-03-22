@@ -40,6 +40,8 @@ fn main() {
     let bindings_builder = bindgen::Builder::default()
         .header(format!("{}/include/stumpless.h", stumpless_out.display()))
         .clang_arg(format!("-I{}/include/", stumpless_out.display()))
+        .allowlist_function("stump.*")
+        .allowlist_type("stump.*")
         .parse_callbacks(Box::new(bindgen::CargoCallbacks));
 
     let bindings = bindings_builder
