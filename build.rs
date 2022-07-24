@@ -36,6 +36,9 @@ fn main() {
         stumpless_out.display()
     );
     println!("cargo:rustc-link-lib=stumpless");
+    if cfg!(feature = "wel") {
+        println!("cargo:rustc-link-lib=ktmw32");
+    }
 
     let bindings_builder = bindgen::Builder::default()
         .header(format!("{}/include/stumpless.h", stumpless_out.display()))
