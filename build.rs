@@ -39,6 +39,9 @@ fn main() {
         stumpless_out.display()
     );
     println!("cargo:rustc-link-lib=stumpless");
+    if cfg!(feature = "journald") {
+        println!("cargo:rustc-link-lib=systemd");
+    }
     if cfg!(feature = "wel") {
         println!("cargo:rustc-link-lib=ktmw32");
     }
