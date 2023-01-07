@@ -11,7 +11,7 @@ env:
 jobs:
   default_features:
     name: Default Features
-    runs-on: mac-latest
+    runs-on: macos-latest
     strategy:
       matrix:
         toolchain:
@@ -28,7 +28,7 @@ jobs:
       - run: cargo test --verbose
   mac_features:
     name: All Mac Features
-    runs-on: mac-latest
+    runs-on: macos-latest
     strategy:
       matrix:
         toolchain:
