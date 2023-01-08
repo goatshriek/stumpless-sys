@@ -30,6 +30,8 @@ jobs:
         run: cargo build --verbose
       - name: Run Tests
         run: cargo test --verbose
+      - name: Build Package
+        run: cargo package --verbose
   windows_features:
     name: All Windows Features
     runs-on: windows-latest
@@ -51,3 +53,5 @@ jobs:
         run: cargo build --verbose --features network,wel
       - name: Run Tests
         run: cargo test --verbose --features network,wel
+      - name: Build Package
+        run: cargo package --verbose --features network,wel

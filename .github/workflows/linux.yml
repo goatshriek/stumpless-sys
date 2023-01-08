@@ -30,6 +30,8 @@ jobs:
         run: cargo build --verbose
       - name: Run Tests
         run: cargo test --verbose
+      - name: Build Package
+        run: cargo package --verbose
   linux_features:
     name: All Linux Features
     runs-on: ubuntu-latest
@@ -55,3 +57,5 @@ jobs:
         run: cargo build --verbose --features journald,network,socket
       - name: Run Tests
         run: cargo test --verbose --features journald,network,socket
+      - name: Build Package
+        run: cargo package --verbose --features journald,network,socket

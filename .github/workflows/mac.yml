@@ -30,6 +30,8 @@ jobs:
         run: cargo build --verbose
       - name: Run Tests
         run: cargo test --verbose
+      - name: Build Package
+        run: cargo package --verbose
   mac_features:
     name: All Mac Features
     runs-on: macos-latest
@@ -51,3 +53,5 @@ jobs:
         run: cargo build --verbose --features network,socket
       - name: Run Tests
         run: cargo test --verbose --features network,socket
+      - name: Build Package
+        run: cargo package --verbose --features network,socket
