@@ -1,5 +1,3 @@
-use std::fs;
-
 use std::env;
 use std::path::PathBuf;
 
@@ -63,7 +61,10 @@ fn main() {
         .expect("Couldn't write bindings!");
 
     if cfg!(feature = "wel") {
-        fs::copy(stumpless_out.join("build").join("default_events.rc"), "src/default_events.rc").expect("Couldn't copy default events resource!");
-        fs::copy(stumpless_out.join("build").join("default_events_MSG00409.bin"), "src/default_events_MSG00409.bin").expect("Couldn't copy default events binary!");
+        //let rc_path = stumpless_out.join("build").join("default_events.rc").to_str().expect("couldn't create default_events.rc path");
+        println!("cargo:rustc-env=STUMPLESS_DEFAULT_EVENTS_RC_PATH={}", stumpless_out.join("build").join("default_events.rc").to_str().expect("couldn't create default_events.rc path"));
+        println!("cargo:rustc-env=STUMPLESS_DEFAULT_EVENTS_BIN_PATH={}", stumpless_out.join("build").join("default_events_MSG00409.bin").to_str().expect("couldn't create default_events_MSG00409.bin path"));
+        //fs::copy(stumpless_out.join("build").join("default_events.rc"), "src/default_events.rc").expect("Couldn't copy default events resource!");
+        //fs::copy(stumpless_out.join("build").join("default_events_MSG00409.bin"), "src/default_events_MSG00409.bin").expect("Couldn't copy default events binary!");
     }
 }
