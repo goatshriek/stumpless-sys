@@ -39,7 +39,8 @@ use std::path::Path;
 pub fn write_default_events_bin_file<P: AsRef<Path>>(path: &P) -> std::io::Result<()> {
     let resource_bytes = include_bytes!(env!("STUMPLESS_DEFAULT_EVENTS_BIN_PATH"));
     let mut file = File::create(&path)?;
-    file.write_all(resource_bytes).expect("couldn't write to the file!");
+    file.write_all(resource_bytes)
+        .expect("couldn't write to the file!");
     Ok(())
 }
 
@@ -49,6 +50,7 @@ pub fn write_default_events_bin_file<P: AsRef<Path>>(path: &P) -> std::io::Resul
 pub fn write_default_events_resource_file<P: AsRef<Path>>(path: &P) -> std::io::Result<()> {
     let resource_bytes = include_bytes!(env!("STUMPLESS_DEFAULT_EVENTS_RC_PATH"));
     let mut file = File::create(&path)?;
-    file.write_all(resource_bytes).expect("couldn't write to the file!");
+    file.write_all(resource_bytes)
+        .expect("couldn't write to the file!");
     Ok(())
 }
