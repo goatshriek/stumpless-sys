@@ -30,6 +30,8 @@ jobs:
         run: cargo build --verbose
       - name: Run Tests
         run: cargo test --verbose
+      - name: Test Formatting
+        run: cargo fmt --all -- --check
       - name: Build Package
         run: cargo package --verbose
   mac_features:
@@ -53,5 +55,7 @@ jobs:
         run: cargo build --verbose --features network,socket
       - name: Run Tests
         run: cargo test --verbose --features network,socket
+      - name: Test Formatting
+        run: cargo fmt --all -- --check
       - name: Build Package
         run: cargo package --verbose --features network,socket

@@ -30,6 +30,8 @@ jobs:
         run: cargo build --verbose
       - name: Run Tests
         run: cargo test --verbose
+      - name: Test Formatting
+        run: cargo fmt --all -- --check
       - name: Build Package
         run: cargo package --verbose
   linux_features:
@@ -57,5 +59,7 @@ jobs:
         run: cargo build --verbose --features journald,network,socket
       - name: Run Tests
         run: cargo test --verbose --features journald,network,socket
+      - name: Test Formatting
+        run: cargo fmt --all -- --check
       - name: Build Package
         run: cargo package --verbose --features journald,network,socket
