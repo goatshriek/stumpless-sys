@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+title: Stumpless Rust FFI Bindings
+license: Apache-2.0
+repository-code: "https://github.com/goatshriek/stumpless-sys"
+version: 0.1.1
+date-released: 2023-01-18
+keywords:
+  - bindings
+  - ffi
+  - journald
+  - logging
+  - library
+  - rust
+  - "structured logging"
+  - syslog
+  - systemd
+  - "windows event log"
+type: software
+authors:
+  - given-names: Joel
+    family-names: Anderson
+    email: joelanderson333@gmail.com
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
