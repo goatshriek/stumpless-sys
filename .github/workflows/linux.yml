@@ -22,10 +22,21 @@ jobs:
       - uses: actions/checkout@v3
       - name: Checkout submodules
         run: git submodule update --init
-      - run: rustup update ${{ matrix.toolchain }}
-      - run: rustup default ${{ matrix.toolchain }}
-      - run: cargo build --verbose
-      - run: cargo test --verbose
+      - name: Update Rust
+        run: |
+          rustup update ${{ matrix.toolchain }}
+          rustup default ${{ matrix.toolchain }}
+          rustup component add rustfmt
+      - name: Build
+        run: cargo build --verbose
+      - name: Run Tests
+        run: cargo test --verbose
+      - name: Test Formatting
+        run: cargo fmt --all -- --check
+      - name: Build Docs
+        run: cargo doc
+      - name: Build Package
+        run: cargo package --verbose
   linux_features:
     name: All Linux Features
     runs-on: ubuntu-latest
@@ -43,7 +54,18 @@ jobs:
       - uses: actions/checkout@v3
       - name: Checkout submodules
         run: git submodule update --init
-      - run: rustup update ${{ matrix.toolchain }}
-      - run: rustup default ${{ matrix.toolchain }}
-      - run: cargo build --verbose --features journald,network,socket
-      - run: cargo test --verbose
+      - name: Update Rust
+        run: |
+          rustup update ${{ matrix.toolchain }}
+          rustup default ${{ matrix.toolchain }}
+          rustup component add rustfmt
+      - name: Build
+        run: cargo build --verbose --features journald,network,socket
+      - name: Run Tests
+        run: cargo test --verbose --features journald,network,socket
+      - name: Test Formatting
+        run: cargo fmt --all -- --check
+      - name: Build Docs
+        run: cargo doc --features journald,network,socket
+      - name: Build Package
+        run: cargo package --verbose --features journald,network,socket

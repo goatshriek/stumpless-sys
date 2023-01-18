@@ -13,6 +13,7 @@ categories = ["external-ffi-bindings"]
 libc = "0.2.139"
 
 [features]
+default = ["network"]
 journald = []
 network = []
 socket = []
@@ -21,3 +22,6 @@ wel = []
 [build-dependencies]
 bindgen = "0.63.0"
 cmake = ">=0.1.45"
+
+[package.metadata.docs.rs]
+features = ["network"]

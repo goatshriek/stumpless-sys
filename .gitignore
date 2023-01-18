@@ -2,3 +2,4 @@
 src/bindings.rs
 src/*.rc
 src/*.bin
+.vscode/*

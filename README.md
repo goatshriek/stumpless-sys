@@ -1,3 +1,4 @@
+[![crates.io](https://img.shields.io/crates/v/stumpless-sys)](https://crates.io/crates/stumpless-sys)
 [![Linux Builds](https://github.com/goatshriek/stumpless-sys/actions/workflows/linux.yml/badge.svg?branch=latest)](https://github.com/goatshriek/stumpless-sys/actions/workflows/linux.yml)
 [![Windows](https://github.com/goatshriek/stumpless-sys/actions/workflows/windows.yml/badge.svg?branch=latest)](https://github.com/goatshriek/stumpless-sys/actions/workflows/windows.yml)
 [![Mac](https://github.com/goatshriek/stumpless-sys/actions/workflows/mac.yml/badge.svg?branch=latest)](https://github.com/goatshriek/stumpless-sys/actions/workflows/mac.yml)
